@@ -116,7 +116,7 @@ Los lenguajes de programación, al igual que los lenguajes que usamos para comun
 
 Los elementos básicos de un lenguaje de programación son:
 
-- Identificadores
+- Variables
 - Constantes
 - Operadores
 - Instrucciones
