@@ -41,9 +41,7 @@ Según su licencia de uso podemos clasificar los entornos de desarrollo en dos g
 - **EDI libres**: son aquellos con licencia de uso público. El autor deja libertad a los usuarios, por lo que el programa puede ser usado, copiado, estudiado, modificado y redistribuido libremente sin ser obligatoriamente gratis. Podemos encontrarnos programas bajo esta licencia que son de pago, aunque suelen ser muy económicos.
 - **EDI propietarios**: Necesitan licencia para ser usado, copiado, estudiado, modificado o redistribuido, es lo contrario a software libre. 
 
-:pencil: realizar actividad 1
-:pencil: realizar Actividad 2
-
+:pencil: Realizar actividad 1 y 2
 
 ## 2. Componentes de un entorno de desarrollo
 
