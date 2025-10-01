@@ -54,7 +54,7 @@ Generalizando, IDE se compone de las siguientes herramientas:
 
 ## 3. Instalación y uso de entornos de desarrollo.
 
-Vamos a ver de forma práctica la instalación y uso de dos entornos de desarrollo, **NetBeans** y **Intellij**. 
+Vamos a ver de forma práctica la instalación y uso de varios entornos de desarrollo: **NetBeans**, **eclipse** e  **Intellij**. 
 
 :pencil: Realizar actividad 3
 
