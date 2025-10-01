@@ -67,4 +67,4 @@ Normalmente se conoce como plugin a un conjunto de módulos.
 
 > ¿Crees que la posibilidad de poder añadir módulos y plugins a un IDE contribuye a su éxito?
 
-:pencil : Realizar actividad 4
+:pencil: Realizar actividad 4
