@@ -1,0 +1,15 @@
+# Archivos PDF
+*.pdf
+
+# Archivos temporales y de sistema
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Archivos de respaldo
+*.bak
+*~
+
+# Logs
+*.log
