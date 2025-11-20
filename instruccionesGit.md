@@ -16,15 +16,37 @@
 
 `git add <nombre_archivo>`: Comienza a trackear el archivo “nombre_archivo”.
 
-`git checkout -b <nombre_rama_nueva>`: Crea una rama a partir de la que te encuentres parado con el nombre “nombre_rama_nueva”, y luego salta sobre la rama nueva, por lo que quedas parado en esta última.
+## Comandos para trabajar con ramas
 
-`git checkout -t origin/<nombre_rama>`: Si existe una rama remota de nombre “nombre_rama”, al ejecutar este comando se crea una rama local con el nombre “nombre_rama” para hacer un seguimiento de la rama remota con el mismo nombre.
+`git branch`: Lista todas las ramas locales del repositorio.
 
-`git branch`: Lista todas las ramas locales.
+`git branch <nombre_rama>`: Crea una nueva rama con el nombre especificado, pero no cambia a ella.
 
 `git branch -a`: Lista todas las ramas locales y remotas.
 
-`git branch -d <nombre_rama>`: Elimina la rama local con el nombre “nombre_rama”.
+`git branch -d <nombre_rama>`: Elimina la rama local con el nombre "nombre_rama". Solo funciona si la rama ya ha sido fusionada.
+
+`git branch -D <nombre_rama>`: Fuerza la eliminación de la rama local, incluso si no ha sido fusionada.
+
+`git checkout <nombre_rama>`: Cambia a la rama especificada.
+
+`git checkout -b <nombre_rama_nueva>`: Crea una rama a partir de la que te encuentres posicionado con el nombre "nombre_rama_nueva", y automáticamente cambia a la rama nueva.
+
+`git checkout -t origin/<nombre_rama>`: Si existe una rama remota de nombre "nombre_rama", al ejecutar este comando se crea una rama local con el mismo nombre para hacer un seguimiento de la rama remota.
+
+`git switch <nombre_rama>`: Comando moderno para cambiar entre ramas (alternativa a checkout).
+
+`git switch -c <nombre_rama>`: Crea y cambia a una nueva rama (alternativa moderna a checkout -b).
+
+## Comandos para fusionar ramas
+
+`git merge <nombre_rama>`: Fusiona la rama especificada en la rama actual. Integra los cambios realizados en "nombre_rama" a la rama en la que estás posicionado.
+
+`git merge --no-ff <nombre_rama>`: Fusiona la rama creando siempre un commit de merge, incluso si es posible hacer fast-forward.
+
+`git merge --abort`: Cancela el proceso de fusión y vuelve al estado anterior si hay conflictos.
+
+`git rebase <nombre_rama>`: Reorganiza los commits de la rama actual sobre la rama especificada. Alternativa al merge que mantiene un historial lineal.
 
 `git push origin <nombre_rama>`: Commitea los cambios desde el branch local origin al branch “nombre_rama”.
 
