@@ -2,6 +2,8 @@
 
 `git init`: Esto crea un subdirectorio nuevo llamado .git, el cual contiene todos los archivos necesarios del repositorio – un esqueleto de un repositorio de Git. Todavía no hay nada en tu proyecto que esté bajo seguimiento.
 
+`git clone <url_repositorio>`: Clona un repositorio remoto a tu máquina local.
+
 `git fetch`: Descarga los cambios realizados en el repositorio remoto.
 
 `git merge <nombre_rama>`: Impacta en la rama en la que te encuentras parado, los cambios realizados en la rama “nombre_rama”.
