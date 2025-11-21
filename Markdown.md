@@ -1,12 +1,33 @@
 # MARKDOWN
+Este es un breve manual para acercar el lenguaje de marcado Markdown a los alumnos de primero del ciclo de desarrollo de Aplicaciones Multiplataforma (DAM).
+En el módulo de Entornos de Desarrollo vamos a utilizarlo para poder llevar a cabo la documentación de los proyectos realizados en Git y GitHub.
 
-### INDICE
+Este está formado por ejemplos con el uso de los elementos básicos que podemos manejar en Markdown y que en la mayoría de los casos será suficiente para realizar la documentación de nuestros proyectos.
+
+Para llevar a cabo la realización de este mini manual se ha utilizado Visual Studio Code con la extensión de ***"Markdown all in one" de Yu Zhang***. La puedes buscar desde el propio Visual Studio Code o desde el marketplace
+
+https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one.
+
+Tiene una serie de utilidades como:
+* ctrl+shift+v - nos abre una ventana donde vemos una vista de cómo va quedar nuestro documento.
+* ctrl+shift+p - nos muestra una serie de opciones entre las que se encuentra:
+  * Create table of contents -> crea el índice en función de los encabezados
+  * Export(pdf) -> genera un documento pdf si instalas la extensión que figura a continuación
+
+Extensión de Visual Studio Code  ***"Markdown PDF" de Yzane***.  La puedes buscar desde el propio Visual Studio Code o desde el marketplace 
+
+https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf
+
+Es por esto que tenéis creado un espacio de trabajo que podeís usar directamente si clonais el repositorio para poder modificarlo en local en la propia rama main llamado ***"Introduccion a Markdown.code-workspace"***.
+
+## INDICE
 - [MARKDOWN](#markdown)
-    - [INDICE](#indice)
-    - [INTRODUCCIÓN](#introducción)
-    - [ENCABEZADOS](#encabezados)
+  - [INDICE](#indice)
+  - [INTRODUCCIÓN](#introducción)
+  - [MARCAS](#marcas)
+    - [Encabezados](#encabezados)
       - [*EJEMPLO*](#ejemplo)
-    - [PARRAFOS](#parrafos)
+    - [Párrafos](#párrafos)
     - [LINEAS HORIZONTALES](#lineas-horizontales)
       - [*EJEMPLO*](#ejemplo-1)
     - [FORMATEO DEL TEXTO](#formateo-del-texto)
@@ -29,8 +50,11 @@
     - [ENLACES](#enlaces)
     - [IMÁGENES](#imágenes)
     - [TABLAS](#tablas)
+  - [EJEMPLO SENCILLO COMPLETO](#ejemplo-sencillo-completo)
+  - [Contacto](#contacto)
+  - [Contacto](#contacto-1)
 
-### INTRODUCCIÓN
+## INTRODUCCIÓN
 Markdown es un lenguaje de marcado creado por John Gruber.
 
 Este es un lenguaje mucho más sencillo e intuitivo a la hora de codificarlo frente a otros como por ejemplo html.
@@ -41,25 +65,24 @@ Este lenguaje es el lenguaje por excelencia usado para realizar documentación, 
 
 EL objetivo de este tutorial no es otro que el de hacer una breve introducción para que los alumnos puedan conocer sus bases y usarlo a la hora de documentar un proyecto.
 
-
-### ENCABEZADOS 
+## MARCAS
+### Encabezados
 Para realizar los encabezados tenemos que usar el símbolo \# delante del texto que conforme el encabezado.
 
 Este nos permite hasta 6 niveles de encabezado de mayor a menor en función del número de \# que se encuentren delante del texto que conforma este.
 
 Estos niveles son equivalentes a los \<h1>,\<h2>, \<h3>, \<h4>, \<h5> y \<h6> de html.
 
-
 #### *EJEMPLO*
  ``` html
  ### Encabezado equivalente a un <h3>
  ```  
+### Párrafos
+Los párrafos los creamos simplemente introduciendo dos saltos de linea, vamos haciendo dos veces Intro.
+
+Si quiero hacer saltos de linea dentro de un mismo párrafo, tengo que pulsar: *barra espaciadora (2 veces) y despues Intro (2 veces)*
 
 
-### PARRAFOS
-Los parrafos los creamos simplemente introduciendo dos saltos de linea, vamos haciendo dos veces Intro.
-
-Si quiero hacer saltos de linea dentro de un mismo parrafo, tengo que pulsar: *barra espaciadora (2 veces) y despues Intro (2 veces)*
 
 
 
@@ -351,6 +374,94 @@ Con el siguiente resultado
 |Programación |
 |Entornos de desarrollo|
 
+
+## EJEMPLO SENCILLO COMPLETO
+
+Imagina que quieres crear un README para un proyecto simple de gestión de tareas. Así se vería el código Markdown:
+
+```markdown
+# Gestor de Tareas
+
+Aplicación de consola para gestionar una lista de tareas pendientes.
+
+## Descripción
+
+Este proyecto permite al usuario gestionar sus tareas diarias mediante una **lista interactiva**:
+- Añadir nueva tarea
+- Marcar tarea como completada
+- Eliminar tarea
+- Mostrar todas las tareas
+
+## Autor
+
+*María García* - Estudiante de DAM
+
+## Características
+
+1. Interfaz por consola
+2. Almacenamiento en ArrayList
+3. Menú de opciones
+
+> **Nota**: Las tareas se pierden al cerrar el programa (sin persistencia).
+
+## Código de ejemplo
+
+```java
+public static void añadirTarea(String descripcion) {
+    tareas.add(new Tarea(descripcion));
+    System.out.println("Tarea añadida correctamente");
+}
+```
+
+## Contacto
+
+Para más información: [Repositorio en GitHub](https://github.com/usuario/gestor-tareas)
+```
+
+Y así se vería el **resultado renderizado**:
+
+---
+
+# Gestor de Tareas
+
+Aplicación de consola para gestionar una lista de tareas pendientes.
+
+## Descripción
+
+Este proyecto permite al usuario gestionar sus tareas diarias mediante una **lista interactiva**:
+- Añadir nueva tarea
+- Marcar tarea como completada
+- Eliminar tarea
+- Mostrar todas las tareas
+
+## Autor
+
+*María García* - Estudiante de DAM
+
+## Características
+
+1. Interfaz por consola
+2. Almacenamiento en ArrayList
+3. Menú de opciones
+
+> **Nota**: Las tareas se pierden al cerrar el programa (sin persistencia).
+
+## Código de ejemplo
+
+```java
+public static void añadirTarea(String descripcion) {
+    tareas.add(new Tarea(descripcion));
+    System.out.println("Tarea añadida correctamente");
+}
+```
+
+## Contacto
+
+Para más información: [Repositorio en GitHub](https://github.com/usuario/gestor-tareas)
+
+---
+
+Como puedes ver, el mismo texto se muestra primero **cómo se escribe** (el código Markdown) y después **cómo se ve** (renderizado). Esto te permite comparar ambos y entender cómo funciona cada elemento.
 
 Os dejo un enlace a un generador de tablas para diversos lenguajes de marcado
 

@@ -432,42 +432,6 @@ Para practicar resolución de conflictos:
 
 Ahora la PR se puede fusionar sin conflictos.
 
-## Fase 6: Integración final
-
-### Paso 6.1: Sincronizar todos los cambios
-
-**Todos los desarrolladores deben actualizar su repositorio local desde NetBeans:**
-
-1. Cambiar a la rama main:
-   - Git → Branch → Switch to Branch → `main`
-2. Traer todos los cambios del repositorio remoto:
-   - Git → Remote → Pull from Upstream
-   - Esto descargará todas las fusiones realizadas
-
-### Paso 6.2: Verificar el proyecto completo
-
-1. Ejecutar el proyecto en NetBeans (F6 o Run)
-2. Verificar que `Calculadora.java` contiene:
-   - ✅ Menú interactivo
-   - ✅ Operaciones de suma y resta
-   - ✅ Operaciones de multiplicación y división
-3. Probar todas las operaciones con diferentes números
-
-### Paso 6.3: Crear tag de versión (Opcional)
-
-**Desarrollador A desde NetBeans:**
-
-1. Clic derecho en el proyecto → Git → Tag → Create Tag
-2. Tag Name: `v1.0`
-3. Tag Message: `Primera versión completa`
-4. Click en **Create Tag**
-5. Publicar el tag en GitHub:
-   - Git → Remote → Push Tags
-   - Seleccionar el tag `v1.0`
-   - Push
-
----
-
 ## Resumen de operaciones Git en NetBeans
 
 ### Operaciones principales utilizadas en el ejercicio:
