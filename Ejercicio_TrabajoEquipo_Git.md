@@ -1,3 +1,8 @@
+#### ED - 1ºCFGS DAM <img src="img/logo.jpg" style="float: right; width: 180px; height: 46px">
+<div style="text-align: center;"><strong>Unidad 3 - Actividad 3</strong></div>
+
+---
+
 # Ejercicio Práctico: Trabajo en Equipo con Git, NetBeans y GitHub
 
 ## Descripción del ejercicio
@@ -25,8 +30,6 @@ Crearán una aplicación Java simple con operaciones matemáticas básicas. El p
 - `Calculadora.java` - Programa principal
 - Cada desarrollador añadirá operaciones diferentes
 
----
-
 ## Fase 1: Preparación inicial (Desarrollador A - Líder)
 
 ### Paso 1.1: Crear el repositorio en GitHub
@@ -51,24 +54,17 @@ Crearán una aplicación Java simple con operaciones matemáticas básicas. El p
 
 ### Paso 1.3: Clonar y conectar con GitHub
 
-**Opción A: Clonar el repositorio y añadir el proyecto**
-```bash
-# En terminal
-git clone https://github.com/usuario/CalculadoraEquipo.git
-# Mover los archivos del proyecto de NetBeans a la carpeta clonada
-```
+**Inicializar Git en el proyecto existente en NetBeans**
 
-**Opción B: Inicializar Git en el proyecto existente**
-
-Desde NetBeans:
 1. Clic derecho en el proyecto → Versioning → Initialize Git Repository
-2. Seleccionar la carpeta del proyecto
-3. Añadir el remoto desde terminal o Git Bash:
-   ```bash
-   git remote add origin https://github.com/usuario/CalculadoraEquipo.git
-   git branch -M main
-   git pull origin main --allow-unrelated-histories
-   ```
+2. Seleccionar la carpeta del proyecto → OK
+3. Añadir el repositorio remoto desde NetBeans:
+   - Clic derecho en el proyecto → Git → Remote → Add
+   - Name: `origin`
+   - URL: `https://github.com/usuario/CalculadoraEquipo.git`
+   - Click en **Add**
+4. Traer el contenido inicial del remoto:
+   - Hacer el pull desde NetBeans: Git → Remote → Pull, seleccionar `origin/main`
 
 ### Paso 1.4: Crear estructura base del proyecto
 
@@ -94,7 +90,7 @@ En NetBeans:
 1. Clic derecho en el proyecto → Git → Commit
 2. Seleccionar todos los archivos
 3. Mensaje: "Estructura inicial del proyecto"
-4. Commit and Push
+4. Commit y Push
 5. Seleccionar la rama `main`
 6. Push
 
@@ -104,8 +100,6 @@ En GitHub:
 1. Ir a Settings → Collaborators
 2. Añadir los usuarios de GitHub de los Desarrolladores B y C
 3. Los desarrolladores deben aceptar la invitación por email
-
----
 
 ## Fase 2: Configuración individual (Todos los desarrolladores)
 
@@ -128,19 +122,29 @@ En GitHub:
    - Desarrollador A: `feature/suma-resta`
    - Desarrollador B: `feature/multiplicacion-division`
    - Desarrollador C: `feature/menu`
-3. Marcar "Switch to New Branch"
-4. Create
+3. Crear la rama
+3. Comprobar que estas en la nueva rama, verifícalo con "Switch to New Branch"
 
 **Verificar rama actual:**
-- En la esquina inferior derecha de NetBeans se muestra la rama activa
+- En el nombre del proyecto aparece entre paréntesis el nombre de la rama actual
 
 ### Paso 2.3: Publicar la rama en GitHub
 
-Después de crear la rama local:
-1. Clic derecho en el proyecto → Git → Remote → Push to Upstream
-2. Esto creará la rama en GitHub automáticamente
+Después de crear la rama local, necesitas subirla al repositorio remoto:
 
----
+**Opción 1: Push to Upstream (recomendado para nueva rama)**
+1. Clic derecho en el proyecto → Git → Remote → Push to Upstream
+2. Esto creará automáticamente la rama en GitHub con el mismo nombre y establecerá el seguimiento
+
+**Opción 2: Push (cuando ya existe conexión)**
+1. Clic derecho en el proyecto → Git → Remote → Push
+2. Seleccionar la rama remota de destino
+
+**Diferencia entre Push to Upstream y Push:**
+- **Push to Upstream**: Sube la rama local al remoto Y establece la conexión de seguimiento (upstream). Es ideal la primera vez que publicas una rama nueva. Git recordará que tu rama local `feature/suma-resta` corresponde a `origin/feature/suma-resta`.
+- **Push**: Solo sube los cambios. Debes especificar manualmente a qué rama remota enviar. Se usa cuando ya existe la rama en el remoto y el seguimiento está configurado.
+
+> **Consejo**: La primera vez que subes una rama nueva, usa siempre **Push to Upstream**. Las siguientes veces puedes usar simplemente **Push**.
 
 ## Fase 3: Desarrollo paralelo
 
@@ -181,10 +185,8 @@ public class Calculadora {
 **Commit y Push:**
 1. Git → Commit
 2. Mensaje: "Añadidas funciones de suma y resta"
-3. Commit and Push
+3. Commit y Push
 4. Push to: `origin/feature/suma-resta`
-
----
 
 ### Tarea del Desarrollador B: Multiplicación y División
 **Rama: `feature/multiplicacion-division`**
@@ -228,10 +230,8 @@ public class Calculadora {
 **Commit y Push:**
 1. Git → Commit
 2. Mensaje: "Añadidas funciones de multiplicación y división"
-3. Commit and Push
+3. Commit y Push
 4. Push to: `origin/feature/multiplicacion-division`
-
----
 
 ### Tarea del Desarrollador C: Menú Interactivo
 **Rama: `feature/menu`**
@@ -267,22 +267,16 @@ public class Calculadora {
                 num2 = scanner.nextDouble();
                 
                 switch(opcion) {
-                    case 1:
-                        System.out.println("Resultado: " + num1 + " + " + num2 + " = " + (num1 + num2));
-                        break;
-                    case 2:
-                        System.out.println("Resultado: " + num1 + " - " + num2 + " = " + (num1 - num2));
-                        break;
-                    case 3:
-                        System.out.println("Resultado: " + num1 + " * " + num2 + " = " + (num1 * num2));
-                        break;
-                    case 4:
+                    case 1 -> System.out.println("Resultado: " + num1 + " + " + num2 + " = " + (num1 + num2));
+                    case 2 -> System.out.println("Resultado: " + num1 + " - " + num2 + " = " + (num1 - num2));
+                    case 3 -> System.out.println("Resultado: " + num1 + " * " + num2 + " = " + (num1 * num2));
+                    case 4 -> {
                         if (num2 != 0) {
                             System.out.println("Resultado: " + num1 + " / " + num2 + " = " + (num1 / num2));
                         } else {
                             System.out.println("Error: No se puede dividir entre cero");
                         }
-                        break;
+                    }
                 }
             } else if (opcion == 0) {
                 System.out.println("¡Hasta pronto!");
@@ -299,10 +293,8 @@ public class Calculadora {
 **Commit y Push:**
 1. Git → Commit
 2. Mensaje: "Añadido menú interactivo para la calculadora"
-3. Commit and Push
+3. Commit y Push
 4. Push to: `origin/feature/menu`
-
----
 
 ## Fase 4: Integración en GitHub (Pull Requests)
 
@@ -312,7 +304,6 @@ public class Calculadora {
 - ✅ **Revisión de código**: Otros pueden revisar antes de integrar
 - ✅ **Documentación**: Queda registro de quién revisó y aprobó
 - ✅ **Detección de conflictos**: GitHub avisa antes de fusionar
-- ✅ **Pruebas automatizadas**: Se pueden configurar tests antes del merge
 - ✅ **Seguridad**: La rama principal está protegida
 - ✅ **Trazabilidad**: Historial claro de cambios
 
@@ -324,11 +315,13 @@ public class Calculadora {
 2. Aparecerá un mensaje: "Your recently pushed branches"
 3. Click en **"Compare & pull request"** para tu rama
 4. Rellenar la Pull Request:
-   - **Title**: Descripción clara (ej: "Añadir clase Libro")
+   - **Title**: Descripción clara (ej: "Añadir suma y resta")
    - **Description**: Detalles de los cambios realizados
-   - **Reviewers**: Asignar a otro miembro del equipo
+   - **Reviewers**: Asignar al **Desarrollador A (Líder)** para revisión y aprobación
    - **Assignees**: Asignarte a ti mismo
 5. Click en **"Create pull request"**
+
+> **Nota**: Como el Desarrollador A será quien fusione las ramas, es lógico que también sea el revisor de las Pull Requests de los Desarrolladores B y C.
 
 **Formato recomendado para la descripción:**
 ```
@@ -344,14 +337,16 @@ public class Calculadora {
 - [ ] Funciones probadas con diferentes valores
 ```
 
-### Paso 4.2: Revisión de código (Desarrollador asignado)
+### Paso 4.2: Revisión de código (Desarrollador A - Líder)
 
-El revisor debe:
+El **Desarrollador A** como líder y revisor debe:
 1. Ir a la pestaña **"Pull requests"**
-2. Abrir la PR asignada
+2. Abrir cada PR asignada (de Desarrollador B y C)
 3. Revisar los cambios en **"Files changed"**
-4. Añadir comentarios si hay sugerencias
+4. Añadir comentarios si hay sugerencias de mejora
 5. Si todo está correcto: **"Review changes"** → **"Approve"**
+
+> **Flujo completo**: Desarrolladores B y C crean PR → Desarrollador A revisa → Desarrollador A aprueba → Desarrollador A fusiona
 
 ### Paso 4.3: Fusionar Pull Requests (Desarrollador A - Líder)
 
@@ -368,21 +363,25 @@ El revisor debe:
 
 ### Paso 4.4: Actualizar repositorio local (Todos)
 
-**Después de cada fusión, todos deben actualizar:**
+**Después de cada fusión, todos deben actualizar desde NetBeans:**
 
 1. Cambiar a la rama main:
    - Git → Branch → Switch to Branch → `main`
 2. Obtener cambios:
-   - Git → Remote → Pull from Upstream
-   - O: Clic derecho → Git → Pull
+   - Git → Remote → Pull from Upstream (si es la primera vez o necesitas configurar el seguimiento)
+   - O: Git → Remote → Pull (si ya tienes configurado el upstream)
+
+**Diferencia entre Pull from Upstream y Pull:**
+- **Pull from Upstream**: Descarga los cambios desde la rama remota configurada automáticamente (origin/main). No necesitas especificar de dónde traer los cambios.
+- **Pull**: Descarga los cambios, pero si no tienes configurado el upstream, te pedirá que especifiques manualmente la rama remota.
+
+> **Nota**: Si hiciste `Push to Upstream` al publicar la rama, el `Pull` simple funcionará perfectamente porque el seguimiento ya está establecido.
 
 **En terminal (alternativa):**
 ```bash
 git checkout main
 git pull origin main
 ```
-
----
 
 ## Fase 5: Manejo de conflictos (Simulación)
 
@@ -412,43 +411,42 @@ Para practicar resolución de conflictos:
 4. Click en **"Mark as resolved"**
 5. **"Commit merge"**
 
-**Opción 2: Resolver localmente (conflictos complejos)**
+**Opción 2: Resolver localmente en NetBeans (conflictos complejos)**
 
-En NetBeans:
-```bash
-# En terminal dentro del proyecto
-git checkout feature/readme-C
-git pull origin main
-```
-
-1. NetBeans mostrará los archivos en conflicto (icono rojo)
-2. Clic derecho en archivo → Git → Resolve Conflicts
-3. Editor de conflictos:
-   - **Left**: Tu versión
-   - **Right**: Versión de main
-   - **Result**: Resultado final (editable)
-4. Editar manualmente el resultado
-5. Click en **"Accept"**
-6. Git → Commit → "Resueltos conflictos de fusión"
-7. Git → Push
+1. Asegurarse de estar en la rama con conflicto:
+   - Git → Branch → Switch to Branch → `feature/readme-C`
+2. Traer los cambios de main a tu rama:
+   - Git → Remote → Pull from Upstream
+   - En el diálogo, seleccionar `origin/main` como rama a fusionar
+   - Esto intentará fusionar main en tu rama y mostrará los conflictos
+3. NetBeans mostrará los archivos en conflicto (icono rojo con símbolo de conflicto)
+4. Clic derecho en el archivo en conflicto → Git → Resolve Conflicts
+5. Se abre el editor de conflictos de NetBeans:
+   - **Left** (izquierda): Tu versión (feature/readme-C)
+   - **Right** (derecha): Versión de main
+   - **Result** (abajo): Resultado final que puedes editar manualmente
+6. Editar el resultado final eligiendo qué cambios conservar
+7. Click en **"Accept"** para marcar el conflicto como resuelto
+8. Git → Commit → Mensaje: "Resueltos conflictos de fusión"
+9. Git → Remote → Push
 
 Ahora la PR se puede fusionar sin conflictos.
-
----
 
 ## Fase 6: Integración final
 
 ### Paso 6.1: Sincronizar todos los cambios
 
-**Todos los desarrolladores:**
-```bash
-git checkout main
-git pull origin main
-```
+**Todos los desarrolladores deben actualizar su repositorio local desde NetBeans:**
+
+1. Cambiar a la rama main:
+   - Git → Branch → Switch to Branch → `main`
+2. Traer todos los cambios del repositorio remoto:
+   - Git → Remote → Pull from Upstream
+   - Esto descargará todas las fusiones realizadas
 
 ### Paso 6.2: Verificar el proyecto completo
 
-1. Ejecutar el proyecto en NetBeans
+1. Ejecutar el proyecto en NetBeans (F6 o Run)
 2. Verificar que `Calculadora.java` contiene:
    - ✅ Menú interactivo
    - ✅ Operaciones de suma y resta
@@ -457,43 +455,68 @@ git pull origin main
 
 ### Paso 6.3: Crear tag de versión (Opcional)
 
-**Desarrollador A:**
-```bash
-git tag -a v1.0 -m "Primera versión completa"
-git push origin v1.0
-```
+**Desarrollador A desde NetBeans:**
+
+1. Clic derecho en el proyecto → Git → Tag → Create Tag
+2. Tag Name: `v1.0`
+3. Tag Message: `Primera versión completa`
+4. Click en **Create Tag**
+5. Publicar el tag en GitHub:
+   - Git → Remote → Push Tags
+   - Seleccionar el tag `v1.0`
+   - Push
 
 ---
 
-## Resumen de comandos Git utilizados
+## Resumen de operaciones Git en NetBeans
 
-### En NetBeans (interfaz gráfica):
-- **Clone**: Team → Git → Clone
-- **Create Branch**: Git → Branch/Tag → Create Branch
-- **Commit**: Git → Commit
-- **Push**: Git → Remote → Push to Upstream
-- **Pull**: Git → Remote → Pull from Upstream
-- **Switch Branch**: Git → Branch → Switch to Branch
+### Operaciones principales utilizadas en el ejercicio:
 
-### En terminal (complementarios):
+| Operación | Ruta en NetBeans | Descripción |
+|-----------|------------------|-------------|
+| **Clonar repositorio** | Team → Git → Clone | Descargar el repositorio remoto a local |
+| **Inicializar Git** | Versioning → Initialize Git Repository | Crear repositorio Git en proyecto existente |
+| **Añadir remoto** | Git → Remote → Add | Conectar con repositorio de GitHub |
+| **Crear rama** | Git → Branch/Tag → Create Branch | Crear nueva rama de desarrollo |
+| **Cambiar de rama** | Git → Branch → Switch to Branch | Moverse entre ramas |
+| **Ver cambios** | Git → Show Changes | Ver archivos modificados |
+| **Commit** | Git → Commit | Guardar cambios en repositorio local |
+| **Push to Upstream** | Git → Remote → Push to Upstream | Subir rama nueva y establecer seguimiento |
+| **Push** | Git → Remote → Push | Subir cambios a rama ya existente |
+| **Pull from Upstream** | Git → Remote → Pull from Upstream | Descargar cambios del remoto |
+| **Resolver conflictos** | Clic derecho → Git → Resolve Conflicts | Abrir editor de conflictos |
+| **Crear tag** | Git → Tag → Create Tag | Etiquetar versión |
+| **Push Tags** | Git → Remote → Push Tags | Subir etiquetas al remoto |
+
+### Comandos de terminal (solo referencia)
+
+Si necesitas usar comandos Git desde terminal, aquí están los equivalentes:
+
 ```bash
 # Ver rama actual
 git branch
 
-# Ver estado
+# Ver estado de archivos
 git status
 
-# Ver historial
-git log --oneline --graph
+# Ver historial de commits
+git log --oneline --graph --all
 
 # Ver ramas remotas
 git branch -r
 
-# Eliminar rama local
-git branch -d nombre-rama
+# Cambiar de rama
+git checkout nombre-rama
+
+# Crear y cambiar a nueva rama
+git checkout -b nombre-rama
+
+# Ver diferencias
+git diff
 ```
 
----
+> **Nota**: En este ejercicio **todo se realiza desde NetBeans**. Los comandos de terminal son solo para referencia informativa.
+
 
 ## Buenas prácticas aplicadas
 
@@ -505,7 +528,6 @@ git branch -d nombre-rama
 ✅ **Sincronización regular** - `git pull` frecuente
 ✅ **Rama main protegida** - Solo se fusiona mediante PR
 
----
 
 ## Preguntas de reflexión
 
@@ -515,7 +537,6 @@ git branch -d nombre-rama
 4. ¿Cuándo deberías hacer `git pull`?
 5. ¿Por qué es importante revisar el código antes de fusionar?
 
----
 
 ## Entregables
 
@@ -523,7 +544,7 @@ git branch -d nombre-rama
    - Pull Request creada
    - Código revisado y aprobado
    - Merge exitoso
-   - Gráfico de ramas en GitHub (Insights → Network)
+   - Gráfico de ramas en GitHub: Ir a la pestaña **Insights** en el repositorio, luego seleccionar **Network** en el menú lateral izquierdo
 
 2. **Repositorio GitHub:**
    - URL del repositorio
@@ -537,15 +558,71 @@ git branch -d nombre-rama
 
 ---
 
-## Ampliaciones opcionales
+## Ampliaciones
+
+### Protección de rama main (Branch Protection Rules)
+
+**Nota**: La protección de rama **NO está activada por defecto** en GitHub. Es una configuración que debe establecer el propietario del repositorio.
+
+Para activar la protección de la rama main:
+1. Ir a **Settings** → **Branches** en el repositorio de GitHub
+2. En "Branch protection rules", click en **Add rule**
+3. En "Branch name pattern" escribir: `main`
+4. Activar las opciones recomendadas:
+   - ✅ **Require a pull request before merging** - Obliga a usar PR, no se puede hacer push directo a main
+   - ✅ **Require approvals** (mínimo 1) - Al menos un revisor debe aprobar antes de fusionar
+   - ✅ **Dismiss stale pull request approvals when new commits are pushed** - Si hay nuevos cambios, se requiere nueva revisión
+   - ✅ **Require conversation resolution before merging** - Resolver todos los comentarios antes de fusionar
+5. Click en **Create** o **Save changes**
+
+**Ventajas de proteger la rama main:**
+- Evita commits accidentales directos a la rama principal
+- Garantiza revisión de código antes de integrar
+- Mejora la calidad del código
+- Simula entornos profesionales de desarrollo
+
+### Gestión de tareas con Issues y Projects
+
+**Orden recomendado:**
+
+**1. Crear Issues (Tareas individuales)**
+- Los Issues se pueden crear independientemente, sin necesidad de un Project
+- Cada Issue representa una tarea, bug o funcionalidad específica
+- Cómo crear:
+  1. Ir a la pestaña **Issues** en GitHub
+  2. Click en **New issue**
+  3. Título y descripción de la tarea
+  4. Asignar a un desarrollador
+  5. Añadir etiquetas (bug, enhancement, documentation, etc.)
+
+**2. Crear Project Board (Organización visual)**
+- El Project Board organiza y visualiza los Issues existentes
+- Cómo crear:
+  1. Ir a la pestaña **Projects** → **New project**
+  2. Elegir template: "Board" (estilo Kanban) o "Table"
+  3. Crear columnas típicas: "To Do", "In Progress", "Done"
+  4. **Añadir Issues al Project**: Arrastrar los Issues creados a las columnas correspondientes
+
+**Flujo de trabajo sugerido:**
+1. Al inicio del sprint/semana: Crear Issues para todas las tareas
+2. Crear un Project Board para visualizar el progreso
+3. Añadir los Issues al Project
+4. Mover los Issues entre columnas según avanza el trabajo
+5. Cerrar Issues cuando se complete y fusione la PR correspondiente
+
+**Ejemplo práctico:**
+- Issue #1: "Añadir función de suma" → Asignado a Dev A
+- Issue #2: "Añadir función de multiplicación" → Asignado a Dev B
+- Issue #3: "Crear menú interactivo" → Asignado a Dev C
+- Project Board "Sprint 1" con estos 3 issues organizados
+
+> **Nota**: No es obligatorio tener un Project para usar Issues. Los Issues funcionan de forma independiente, pero el Project ayuda a organizar visualmente el trabajo del equipo.
+
+### Otras ampliaciones
 
 - Configurar GitHub Actions para tests automáticos
-- Implementar protección de rama main (require reviews)
-- Usar Issues para planificar tareas
-- Crear un Project Board para seguimiento
+- Vincular Pull Requests con Issues usando palabras clave (fixes #1, closes #2)
 - Añadir más funcionalidades en nuevas ramas
-
----
 
 ## Referencias
 
