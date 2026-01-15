@@ -49,3 +49,5 @@ Aprende a documentar tu código Java utilizando Javadoc. Este manual te enseña 
 - ✅ Describir parámetros y valores de retorno
 - ✅ Documentar excepciones que se lanzan
 - ✅ Generar API reference automática
+
+:pencil: Actividad 4

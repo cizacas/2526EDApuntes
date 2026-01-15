@@ -360,3 +360,5 @@ Para contribuir con cambios desde su repositorio local de Git a un repositorio p
 2. En la página Repositorio remoto del asistente, seleccione el repositorio configurado (para usar la ruta al repositorio configurado anteriormente) o la opción Especificar ubicación del repositorio Git (para definir la ruta a un repositorio remoto al que aún no se ha accedido, su nombre, e nombre de usuario y contraseña si es necesario) y haga clic en Siguiente.
 3. En la página Seleccionar ramas locales, elija las ramas a las que enviar sus ediciones y haga clic en Siguiente.
 4. En la página Actualizar referencias locales, elija las ramas que se actualizarán en el directorio remoto de su repositorio local y haga clic en Finalizar. La rama de repositorio remoto especificada se actualiza con el estado más reciente de su rama local.
+
+:pencil: Actividad 1

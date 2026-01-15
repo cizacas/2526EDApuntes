@@ -288,3 +288,5 @@ El grupo puede ser desde un reducido equipo de trabajo para un proyecto empresar
 Ver vídeo explicativo del funcionamiento de GitHub: [What is GitHub?](https://www.youtube.com/watch?v=w3jLJU7DT5E)
 
 Puedes consultar más información sobre GitHub en su web [github.com](https://github.com/)
+
+:pencil: Actividades 2 y 3
