@@ -175,6 +175,7 @@ public class Pattern{
 
 <div class="page"/>
 - Sin refactorizar:
+
 ```Java
 void printOwing(){
   printBanner();
@@ -185,6 +186,7 @@ void printOwing(){
 ```
 
 - Refactorizado:
+
 ```Java
 void printOwing(){
   printBanner();
@@ -204,10 +206,12 @@ int area = alto * ancho;    // factorizado
 Además, hay que evitar los _Magic Numbers_. Un Magic Number es un valor literal (“texto” o numérico) empleado en el código sin ninguna explicación. Se deben sustituir siempre que se pueda por una constante que identifique su finalidad.
 
 - Sin refactorizar:
+
 ```Java
 int precioConIva = precioBase + (0.21 * precioBase);
 ```
 - Refactorizado
+
 ```Java
 final static double IVA = 0.21;
 int precioConIva = precioBase + (IVA * precioBase);
