@@ -33,7 +33,7 @@ Refactorizar nos ayuda a tener un código fuente sencillo y bien estructurado y 
 - Código sin refactorizar:
 
 ```Java
-void printOwing(){
+public void printOwing(){
   printBanner();
   //print details
   System.out.println("name: "+name);
@@ -46,12 +46,12 @@ void printOwing(){
 - Código refactorizado:
 
 ```Java
-void printOwing(){
+public void printOwing(){
   printBanner();
   printDetails(getOutstanding());
 }
 
-void printDetails(double outstanding){
+public void printDetails(double outstanding){
   System.out.println("name: "+name);
   System.out.println("amount:"+outstanding);
 }
@@ -177,7 +177,7 @@ public class Pattern{
 - Sin refactorizar:
 
 ```Java
-void printOwing(){
+public void printOwing(){
   printBanner();
   //print details
   System.out.println("name: "+name);
@@ -188,11 +188,12 @@ void printOwing(){
 - Refactorizado:
 
 ```Java
-void printOwing(){
+public void printOwing(){
   printBanner();
   printDetails(getOutstanding());
 }
-void printDetails(double outstanding){
+
+public void printDetails(double outstanding){
   System.out.println("name: "+name);
   System.out.println("amount:"+outstanding());
 }
@@ -216,6 +217,7 @@ int precioConIva = precioBase + (0.21 * precioBase);
 final static double IVA = 0.21;
 int precioConIva = precioBase + (IVA * precioBase);
 ```
+
 También, separar variables temporales: Una variable intermedia temporal la estamos usando varias veces (es decir, para calcular varios valores intermedios diferentes). No siendo una variable dentro de un bucle.La solución es crear una variable para cada valor que se calcula e intentar que el nombre de esas variables intermedias corresponda con el sentido del valor calculado.
 
 <div class="page"/>
@@ -240,7 +242,7 @@ System.out.println(area);
 - Sin refactorizar
 
 ```Java
-int discount(int inputVal, int quantity) {
+public int discount(int inputVal, int quantity) {
   if (inputVal > 50) {
      inputVal -= 2;
     }
@@ -250,7 +252,7 @@ int discount(int inputVal, int quantity) {
 - Refactorizado:
 
 ```java
-int discount(int inputVal, int quantity) {
+public int discount(int inputVal, int quantity) {
   int result = inputVal;
   if (inputVal > 50) {
     result -= 2;
@@ -331,7 +333,7 @@ else {
 - Sin refactorizar
 
 ```java
-double disabilityAmount() {
+public double disabilityAmount() {
   if (seniority < 2) {
     return 0;
   }
@@ -349,7 +351,7 @@ double disabilityAmount() {
 - Refactorizado
 
 ```java
-double disabilityAmount() {
+public double disabilityAmount() {
   if (isNotEligableForDisability()) {
     return 0;
    }
@@ -362,9 +364,9 @@ double disabilityAmount() {
 - Sin refactorizar:
 
 ```java
-class Bird {
+public class Bird {
   //...
-  double getSpeed() {
+  public double getSpeed() {
     switch (type) {
       case EUROPEAN:
         return getBaseSpeed();
@@ -380,22 +382,22 @@ class Bird {
 - Refactorizado:
 
 ```java
-abstract class Bird {
+public abstract class Bird {
   //...
-  abstract double getSpeed();
+  public abstract double getSpeed();
 }
-class European extends Bird {
-  double getSpeed() {
+public class European extends Bird {
+  public double getSpeed() {
     return getBaseSpeed();
   }
 }
-class African extends Bird {
-  double getSpeed() {
+public class African extends Bird {
+  public double getSpeed() {
     return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
   }
 }
-class NorwegianBlue extends Bird {
-  double getSpeed() {
+public class NorwegianBlue extends Bird {
+  public double getSpeed() {
     return (isNailed) ? 0 : getBaseSpeed(voltage);
   }
 }
@@ -429,19 +431,19 @@ row.setVictoria("15");
 
 ```java
 //Sin refactorizar:
-class Person {
-  get officeAreaCode() {return this._officeAreaCode;}
-  get officeNumber()   {return this._officeNumber;}
+public class Person {
+  public get officeAreaCode() {return this._officeAreaCode;}
+  public get officeNumber()   {return this._officeNumber;}
 
 //Refactorizado:
 
-class Person {
-  get officeAreaCode() {return this._telephoneNumber.areaCode;}
-  get officeNumber()   {return this._telephoneNumber.number;}
+public class Person {
+  public get officeAreaCode() {return this._telephoneNumber.areaCode;}
+  public get officeNumber()   {return this._telephoneNumber.number;}
 }
-class TelephoneNumber {
-  get areaCode() {return this._areaCode;}
-  get number()   {return this._number;}
+public class TelephoneNumber {
+  public get areaCode() {return this._areaCode;}
+  public get number()   {return this._number;}
 }
 ```
 - __Mover del interior a otro nivel__: Consiste en mover una clase interna a un nivel superior en la jerarquía.
@@ -451,7 +453,7 @@ class TelephoneNumber {
 - Sin refactorizar:
 
 ```java
-class Persona {
+public class Persona {
   public String nombre;
 }
 ```
@@ -459,7 +461,7 @@ class Persona {
 - Refactorizado:
 
 ```java
-class Persona {
+public class Persona {
   private String nombre;
   public String getNombre() {
     return nombre;
