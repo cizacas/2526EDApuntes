@@ -64,6 +64,7 @@ Ventajas del cambio:
 - `printDetails()` se encarga exclusivamente de la impresión, mejorando la legibilidad.
 - Si hay cambios en cómo se muestran los detalles, solo necesitamos modificar `printDetails()`.
 
+- Ahora cumple con el __Principio de responsabilidad única de los métodos__: Cada método debe encargarse de realizar una única tarea o responsabilidad bien definida. Si un método realiza varias acciones diferentes, conviene dividirlo en varios métodos más simples. Esto facilita la comprensión, el mantenimiento y la reutilización del código. Un método que cumple este principio es más fácil de probar y modificar sin afectar a otras partes del programa.
 
 __Los principales objetivos__ de la refactorización son:
 - Limpiar el código, mejorando la consistencia y la claridad.
@@ -137,7 +138,7 @@ Para los identificadores podemos usar las letras anglosajonas y números de la t
 
 ### Técnicas de refactorización
 
-- __Tabulación__: _No_ es una técnica de refactorización en sí (ya que no se modifica código), pero es una forma de que el código sea más claro y legible.Sangrando o tabulando el código conseguimos una visión jerárquica del mismo por bloques.
+- __Tabulación__: _No_ es una técnica de refactorización en sí (ya que no se modifica código), pero es una forma de que el código sea más claro y legible. Sangrando o tabulando el código conseguimos una visión jerárquica del mismo por bloques.
 - Sin tabular:
 
 ```Java
@@ -173,6 +174,8 @@ public class Pattern{
 
 - __Extraer método__ o también denominado __Sustituir bloques de código por un método__: Este patrón nos aconseja sustituir un bloque de código, por un método. De esta forma, cada vez que queramos acceder a ese bloque de código, bastaría con invocar al método. Es decir, cuando encontramos un fragmento de código que se puede agrupar. Lo incluimos dentro de un método propio indicando con su nombre la función que realiza.
 
+Por ejemplo, un método que calcula y muestra resultados debería dividirse en dos: uno para calcular y otro para mostrar, de modo que cada uno tenga una única responsabilidad.
+
 <div class="page"/>
 - Sin refactorizar:
 
@@ -204,7 +207,7 @@ public void printDetails(double outstanding){
 int a = alto * ancho;       // sin refactorizar
 int area = alto * ancho;    // factorizado
 ```
-Además, hay que evitar los _Magic Numbers_. Un Magic Number es un valor literal (“texto” o numérico) empleado en el código sin ninguna explicación. Se deben sustituir siempre que se pueda por una constante que identifique su finalidad.
+Además, hay que evitar los _Magic Numbers_. Un `Magic Number` es un valor literal (`texto` o `numérico`) empleado en el código sin ninguna explicación. Se deben sustituir siempre que se pueda por una constante que identifique su finalidad.
 
 - Sin refactorizar:
 
