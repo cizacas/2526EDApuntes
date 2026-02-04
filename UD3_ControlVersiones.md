@@ -7,7 +7,16 @@
     - [3.1 Arquitectura de Git](#31-arquitectura-de-git)
     - [3.2. Flujo de trabajo en Git](#32-flujo-de-trabajo-en-git)
     - [3.3. Git con repositorios remotos](#33-git-con-repositorios-remotos)
-    - [3.4. Principales instrucciones de Git](#34-principales-instrucciones-de-git)
+    - [3.4. Ramas en Git (Branches)](#34-ramas-en-git-branches)
+      - [3.4.1. ¿Qué son las ramas y por qué se crean?](#341-qué-son-las-ramas-y-por-qué-se-crean)
+      - [3.4.2. Finalidad de las ramas](#342-finalidad-de-las-ramas)
+      - [3.4.3. Tipos de ramas comunes](#343-tipos-de-ramas-comunes)
+      - [3.4.4. Crear y gestionar ramas](#344-crear-y-gestionar-ramas)
+      - [3.4.5. Fusionar ramas (Merge)](#345-fusionar-ramas-merge)
+      - [3.4.6. Tipos de fusión](#346-tipos-de-fusión)
+      - [3.4.7. Conflictos de fusión](#347-conflictos-de-fusión)
+      - [3.4.8. Buenas prácticas con ramas](#348-buenas-prácticas-con-ramas)
+    - [3.5. Principales instrucciones de Git](#35-principales-instrucciones-de-git)
   - [4. GitHub](#4-github)
 
 ## 1. ¿Qué es el control de versiones?
@@ -90,7 +99,167 @@ Para trabajar con un repositorio remoto es necesario conocer varios conceptos:
 
 ![git remoto](img/Git_remoto.jpg)
 
-### 3.4. Principales instrucciones de Git
+### 3.4. Ramas en Git (Branches)
+
+#### 3.4.1. ¿Qué son las ramas y por qué se crean?
+
+Una **rama** (branch) en Git es una línea independiente de desarrollo que permite trabajar en diferentes versiones del proyecto de forma simultánea. Las ramas son una de las características más potentes de Git.
+
+**Razones principales para crear ramas:**
+
+1. **Desarrollo de nuevas funcionalidades**: Permite trabajar en una nueva característica sin afectar al código estable de la rama principal.
+2. **Corrección de errores**: Se pueden crear ramas específicas para solucionar bugs sin interferir con el desarrollo de otras funcionalidades.
+3. **Experimentación**: Probar nuevas ideas sin riesgo de romper el código funcional.
+4. **Trabajo en equipo**: Varios desarrolladores pueden trabajar en paralelo en diferentes tareas sin generar conflictos.
+5. **Versiones de producción**: Mantener diferentes versiones del software (desarrollo, pruebas, producción).
+
+#### 3.4.2. Finalidad de las ramas
+
+Las ramas permiten:
+- **Aislamiento**: Los cambios en una rama no afectan a otras ramas hasta que se fusionen.
+- **Organización**: Mantener el código organizado según características, versiones o entornos.
+- **Colaboración**: Facilitar el trabajo en equipo sin interferencias.
+- **Reversibilidad**: Si una rama no funciona como se esperaba, se puede eliminar sin afectar al resto del proyecto.
+
+#### 3.4.3. Tipos de ramas comunes
+
+- **main/master**: Rama principal que contiene el código estable y en producción.
+- **develop**: Rama de desarrollo donde se integran las nuevas funcionalidades.
+- **feature/**: Ramas para desarrollar nuevas características (ej: `feature/login`, `feature/carrito-compra`).
+- **hotfix/**: Ramas para correcciones urgentes en producción.
+- **release/**: Ramas para preparar nuevas versiones.
+
+#### 3.4.4. Crear y gestionar ramas
+
+**Crear una nueva rama:**
+```bash
+git branch nombre-rama
+```
+
+**Cambiar a una rama:**
+```bash
+git checkout nombre-rama
+```
+
+**Crear y cambiar a una rama nueva (en un solo comando):**
+```bash
+git checkout -b nombre-rama
+```
+
+**Ver todas las ramas:**
+```bash
+git branch        # ramas locales
+git branch -a     # ramas locales y remotas
+```
+
+**Eliminar una rama:**
+```bash
+git branch -d nombre-rama
+```
+
+#### 3.4.5. Fusionar ramas (Merge)
+
+La **fusión** (merge) es el proceso de integrar los cambios de una rama en otra. Es fundamental para incorporar las nuevas funcionalidades o correcciones a la rama principal.
+
+**Proceso de fusión:**
+
+1. **Posicionarse en la rama destino** (donde queremos traer los cambios):
+   ```bash
+   git checkout main
+   ```
+
+2. **Fusionar la rama origen** (la que contiene los cambios):
+   ```bash
+   git merge nombre-rama
+   ```
+
+**Ejemplo práctico:**
+```bash
+# Crear una rama para una nueva funcionalidad
+git checkout -b feature/nueva-funcionalidad
+
+# Realizar cambios y commits
+git add .
+git commit -m "Añadida nueva funcionalidad"
+
+# Volver a la rama principal
+git checkout main
+
+# Fusionar los cambios
+git merge feature/nueva-funcionalidad
+
+# Eliminar la rama si ya no se necesita
+git branch -d feature/nueva-funcionalidad
+```
+
+#### 3.4.6. Tipos de fusión
+
+**Fast-forward**: Cuando no hay commits nuevos en la rama destino, Git simplemente mueve el puntero hacia adelante.
+
+```
+Antes:      main: A---B
+                       \
+            feature:    C---D
+
+Después:    main: A---B---C---D
+```
+
+**Three-way merge**: Cuando ambas ramas tienen commits diferentes, Git crea un nuevo commit de fusión.
+
+```
+Antes:      main:    A---B---E
+                          \
+            feature:       C---D
+
+Después:    main:    A---B---E---F (commit de merge)
+                          \     /
+            feature:       C---D
+```
+
+#### 3.4.7. Conflictos de fusión
+
+Cuando dos ramas modifican las mismas líneas de un archivo, Git no puede fusionarlas automáticamente y genera un **conflicto**.
+
+**Pasos para resolver conflictos:**
+
+1. Git marca los archivos en conflicto:
+   ```bash
+   git status  # Ver archivos con conflictos
+   ```
+
+2. Abrir los archivos y buscar las marcas de conflicto:
+   ```
+   <<<<<<< HEAD
+   Código de la rama actual
+   =======
+   Código de la rama a fusionar
+   >>>>>>> nombre-rama
+   ```
+
+3. Editar manualmente el archivo, eligiendo qué cambios conservar.
+
+4. Eliminar las marcas de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`).
+
+5. Añadir el archivo resuelto:
+   ```bash
+   git add archivo-resuelto
+   ```
+
+6. Completar la fusión:
+   ```bash
+   git commit -m "Resueltos conflictos de fusión"
+   ```
+
+#### 3.4.8. Buenas prácticas con ramas
+
+- Usar nombres descriptivos para las ramas (`feature/login`, `bugfix/error-calculo`).
+- Mantener las ramas pequeñas y enfocadas en una única tarea.
+- Fusionar regularmente los cambios de la rama principal a tu rama de trabajo para evitar conflictos grandes.
+- Eliminar las ramas una vez fusionadas para mantener el repositorio limpio.
+- Hacer commits frecuentes y con mensajes claros.
+- Sincronizar con el repositorio remoto regularmente.
+
+### 3.5. Principales instrucciones de Git
 
 Los principales comandos de Git son los siguientes:
 
@@ -119,3 +288,5 @@ El grupo puede ser desde un reducido equipo de trabajo para un proyecto empresar
 Ver vídeo explicativo del funcionamiento de GitHub: [What is GitHub?](https://www.youtube.com/watch?v=w3jLJU7DT5E)
 
 Puedes consultar más información sobre GitHub en su web [github.com](https://github.com/)
+
+:pencil: Actividades 2 y 3

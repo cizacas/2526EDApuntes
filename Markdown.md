@@ -1,15 +1,36 @@
-# MARKDOWN
+# MANUAL BÁSICO DE MARKDOWN
+Este es un breve manual para acercar el lenguaje de marcado Markdown a los alumnos de primero del ciclo de desarrollo de Aplicaciones Multiplataforma (DAM).
+En el módulo de Entornos de Desarrollo vamos a utilizarlo para poder llevar a cabo la documentación de los proyectos realizados en Git y GitHub.
 
-### INDICE
-- [MARKDOWN](#markdown)
-    - [INDICE](#indice)
-    - [INTRODUCCIÓN](#introducción)
-    - [ENCABEZADOS](#encabezados)
+Este está formado por ejemplos con el uso de los elementos básicos que podemos manejar en Markdown y que en la mayoría de los casos será suficiente para realizar la documentación de nuestros proyectos.
+
+Para llevar a cabo la realización de este mini manual se ha utilizado Visual Studio Code con la extensión de ***"Markdown all in one" de Yu Zhang***. La puedes buscar desde el propio Visual Studio Code o desde el marketplace
+
+https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one.
+
+Tiene una serie de utilidades como:
+* ctrl+shift+v - nos abre una ventana donde vemos una vista de cómo va quedar nuestro documento.
+* ctrl+shift+p - nos muestra una serie de opciones entre las que se encuentra:
+  * Create table of contents -> crea el índice en función de los encabezados
+  * Export(pdf) -> genera un documento pdf si instalas la extensión que figura a continuación
+
+Extensión de Visual Studio Code  ***"Markdown PDF" de Yzane***.  La puedes buscar desde el propio Visual Studio Code o desde el marketplace 
+
+https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf
+
+Es por esto que tenéis creado un espacio de trabajo que podeís usar directamente si clonais el repositorio para poder modificarlo en local en la propia rama main llamado ***"Introduccion a Markdown.code-workspace"***.
+
+## INDICE
+- [MANUAL BÁSICO DE MARKDOWN](#manual-básico-de-markdown)
+  - [INDICE](#indice)
+  - [INTRODUCCIÓN](#introducción)
+  - [MARCAS](#marcas)
+    - [Encabezados](#encabezados)
       - [*EJEMPLO*](#ejemplo)
-    - [PARRAFOS](#parrafos)
-    - [LINEAS HORIZONTALES](#lineas-horizontales)
+    - [Párrafos](#párrafos)
+    - [Líneas horizontales](#líneas-horizontales)
       - [*EJEMPLO*](#ejemplo-1)
-    - [FORMATEO DEL TEXTO](#formateo-del-texto)
+    - [Formateo del texto](#formateo-del-texto)
       - [**NEGRITA**](#negrita)
       - [*EJEMPLO*](#ejemplo-2)
       - [*CURSIVA*](#cursiva)
@@ -19,18 +40,20 @@
       - [*TACHADO*](#tachado)
       - [*CITAS*](#citas)
       - [*EJEMPLO*](#ejemplo-5)
-  - [*Ley de Mosher de la Ingeniería del Software*](#ley-de-mosher-de-la-ingeniería-del-software)
       - [SUPERINDICE](#superindice)
       - [*EJEMPLO*](#ejemplo-6)
       - [SUBINDICE](#subindice)
       - [*EJEMPLO*](#ejemplo-7)
     - [*CÓDIGO*](#código)
-    - [LISTAS](#listas)
-    - [ENLACES](#enlaces)
-    - [IMÁGENES](#imágenes)
-    - [TABLAS](#tablas)
+    - [Listas](#listas)
+    - [Enlaces](#enlaces)
+    - [Imágenes](#imágenes)
+    - [Tablas](#tablas)
+  - [EJEMPLO SENCILLO COMPLETO](#ejemplo-sencillo-completo)
+  - [Contacto](#contacto)
+  - [Contacto](#contacto-1)
 
-### INTRODUCCIÓN
+## INTRODUCCIÓN
 Markdown es un lenguaje de marcado creado por John Gruber.
 
 Este es un lenguaje mucho más sencillo e intuitivo a la hora de codificarlo frente a otros como por ejemplo html.
@@ -41,30 +64,25 @@ Este lenguaje es el lenguaje por excelencia usado para realizar documentación, 
 
 EL objetivo de este tutorial no es otro que el de hacer una breve introducción para que los alumnos puedan conocer sus bases y usarlo a la hora de documentar un proyecto.
 
-
-### ENCABEZADOS 
+## MARCAS
+### Encabezados
 Para realizar los encabezados tenemos que usar el símbolo \# delante del texto que conforme el encabezado.
 
 Este nos permite hasta 6 niveles de encabezado de mayor a menor en función del número de \# que se encuentren delante del texto que conforma este.
 
 Estos niveles son equivalentes a los \<h1>,\<h2>, \<h3>, \<h4>, \<h5> y \<h6> de html.
 
-
 #### *EJEMPLO*
  ``` html
  ### Encabezado equivalente a un <h3>
  ```  
+### Párrafos
+Los párrafos los creamos simplemente introduciendo dos saltos de linea, vamos haciendo dos veces Intro.
 
+Si quiero hacer saltos de linea dentro de un mismo párrafo, tengo que pulsar: *barra espaciadora (2 veces) y despues Intro (2 veces)*
 
-### PARRAFOS
-Los parrafos los creamos simplemente introduciendo dos saltos de linea, vamos haciendo dos veces Intro.
-
-Si quiero hacer saltos de linea dentro de un mismo parrafo, tengo que pulsar: *barra espaciadora (2 veces) y despues Intro (2 veces)*
-
-
-
-### LINEAS HORIZONTALES
-Para crear lineas horizontales cuyo principal cometido es separar secciones existen diferentes opciones, aunque el resultado es el mismo
+### Líneas horizontales
+Para crear líneas horizontales cuyo principal cometido es separar secciones existen diferentes opciones, aunque el resultado es el mismo
 
 * \***
 * \___
@@ -73,7 +91,7 @@ Para crear lineas horizontales cuyo principal cometido es separar secciones exis
 #### *EJEMPLO*
 ***
 
-### FORMATEO DEL TEXTO
+### Formateo del texto
 Para formatear nuestro texto tenemos básicamente la opción de negrita y cursiva.
 
 #### **NEGRITA** 
@@ -102,26 +120,19 @@ Puedo mezclar ambos para lo que usamos \*** rodeando aquello que queremos que se
 ```
 ---
 #### *TACHADO* 
-
 Para poder tachar un texto se rodea de ~~
 
 ```markdown
 la palabra ~~error~~ está tachada
 ```
-cuyo resultado es 
+cuyo resultado es la palabra ~~error~~ está tachada
 
-la palabra ~~error~~ está tachada
-
----
-#### *CITAS* 
-
-Para introducir citas lo que tenemos que hacer s usar \> al principio de la linea de esta.
+#### *CITAS*
+Para introducir citas lo que tenemos que hacer es usar \> al principio de la línea de esta.
 
 #### *EJEMPLO*
 >"No te preocupes si no funciona bien. Si todo estuviera correcto, serías despedido de tu trabajo"
 *Ley de Mosher de la Ingeniería del Software*
----
-
 
 #### SUPERINDICE
 Para lograr esto uso.
@@ -130,10 +141,7 @@ Para lograr esto uso.
 Hola<sup>2
 ```
 #### *EJEMPLO*
-
 Hola<sup>2
-
----
 
 #### SUBINDICE
 Para lograr esto uso.
@@ -144,8 +152,6 @@ H<sub>2</sub>O  CO<sub>2</sub>
 #### *EJEMPLO*
 
 H<sub>2</sub>O  CO<sub>2</sub>
-
----
 
 ### *CÓDIGO*
 Existe la posiblidad de introducir trozos de código y darles formato. 
@@ -195,8 +201,7 @@ public class Ejercicio2 {
 }
  ```
 
----
-### LISTAS
+### Listas
 Existen dos tipos de listas
 * Desordenadas
 * Ordenadas
@@ -205,7 +210,7 @@ Existen dos tipos de listas
     ```markdown
     1. primer elemento de la lista
     2. segundo elemento de la lista
-    ````
+    ```
 
 * No ordenadas
 
@@ -219,16 +224,20 @@ Existen dos tipos de listas
 * Anidadas
   Estas se producen cuando introducimos una lista dentro de otra. Podemos mezclar tipos.
 
-    ```markdown
+  ```markdown
     1. Primer elemento
     2. Segundo elemento
        1. Elemento 2.1   
        2. Elemento 2.2
     3. Tercer elemento
-    ```
+    - Elemento no ordenado 1
+    - Elemento no ordenado 2
 
-### ENLACES
-Para crear los enlaces es necesario envolver el texto a enlazar de [ ] y pegado a el y entre ( ) la dirección o URL a dónde saltar.
+  ```
+
+### Enlaces
+
+Para crear los enlaces es necesario envolver el texto a enlazar de `[ ]` y pegado a el y entre `( )` la dirección o URL a dónde saltar.
 
 Existen diversos tipos de enlaces posibles en markdown.
 
@@ -278,7 +287,7 @@ página de la organización [GNU][1]
 ......
 
 
-[1]:https://www.gnu.org/home.es.html "Este es el anlace a GNU"
+[1]:https://www.gnu.org/home.es.html "Este es el enlace a GNU"
 
 ```
 Como ves en enlace tiene a su vez una referencia en este caso un número. Se suelen poner al final del documento todos los enlaces de esta manera, lo que nos permite una mayor organización.
@@ -288,7 +297,7 @@ El resultado es
 página de la organización [GNU][1]
 
 ---
-### IMÁGENES
+### Imágenes
 El trabajo con imágenes en markdown se hace practicamente igual que los enlaces (no deja de ser un enlace a una dirección dónde se encuentra almacenada la imagen). la única diferencia respecto a la sintaxis vista es que tenemos que nateponer una ! delante de lo visto hasta ahora.
 
 
@@ -308,9 +317,7 @@ Lo cual nos muestra como resultado
 
 [![GNU](img/GNU.png)](https://www.gnu.org/home.es.html "Logo de enlace a GNU")
 
-
----
-### TABLAS 
+### Tablas 
 
 Las tablas en markdown se realizan de una forma bastante rudimentaria, como si estuviesemos dibujando
 
@@ -328,7 +335,6 @@ Veamos un ejemplo
 ```
 
 Con el siguiente resultado
-
 
 | MODULOS DE PRIMERO | MODULOS DE SEGUNDO |
 | ---------- | ---------- |
@@ -351,10 +357,94 @@ Con el siguiente resultado
 |Programación |
 |Entornos de desarrollo|
 
-
 Os dejo un enlace a un generador de tablas para diversos lenguajes de marcado
-
 https://www.tablesgenerator.com/markdown_tables
 
 
-[1]:https://www.gnu.org/home.es.html "Este es el anlace a GNU"
+## EJEMPLO SENCILLO COMPLETO
+
+Imagina que quieres crear un README para un proyecto simple de gestión de tareas. Así se vería el código Markdown:
+
+```markdown
+# Gestor de Tareas
+
+Aplicación de consola para gestionar una lista de tareas pendientes.
+
+## Descripción
+
+Este proyecto permite al usuario gestionar sus tareas diarias mediante una **lista interactiva**:
+- Añadir nueva tarea
+- Marcar tarea como completada
+- Eliminar tarea
+- Mostrar todas las tareas
+
+## Autor
+
+*María García* - Estudiante de DAM
+
+## Características
+
+1. Interfaz por consola
+2. Almacenamiento en ArrayList
+3. Menú de opciones
+
+> **Nota**: Las tareas se pierden al cerrar el programa (sin persistencia).
+
+## Código de ejemplo
+
+```java
+public static void añadirTarea(String descripcion) {
+    tareas.add(new Tarea(descripcion));
+    System.out.println("Tarea añadida correctamente");
+}
+```
+
+## Contacto
+
+Para más información: [Repositorio en GitHub](https://github.com/usuario/gestor-tareas)
+```
+
+Y así se vería el **resultado renderizado**:
+
+---
+
+# Gestor de Tareas
+
+Aplicación de consola para gestionar una lista de tareas pendientes.
+
+## Descripción
+
+Este proyecto permite al usuario gestionar sus tareas diarias mediante una **lista interactiva**:
+- Añadir nueva tarea
+- Marcar tarea como completada
+- Eliminar tarea
+- Mostrar todas las tareas
+
+## Autor
+
+*María García* - Estudiante de DAM
+
+## Características
+
+1. Interfaz por consola
+2. Almacenamiento en ArrayList
+3. Menú de opciones
+
+> **Nota**: Las tareas se pierden al cerrar el programa (sin persistencia).
+
+## Código de ejemplo
+
+```java
+public static void añadirTarea(String descripcion) {
+    tareas.add(new Tarea(descripcion));
+    System.out.println("Tarea añadida correctamente");
+}
+```
+
+## Contacto
+
+Para más información: [Repositorio en GitHub](https://github.com/usuario/gestor-tareas)
+
+---
+
+Como puedes ver, el mismo texto se muestra primero **cómo se escribe** (el código Markdown) y después **cómo se ve** (renderizado). Esto te permite comparar ambos y entender cómo funciona cada elemento.
