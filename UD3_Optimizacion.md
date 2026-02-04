@@ -522,6 +522,7 @@ Hay muchos más "olores". Os invito a investigar en las webs:
 
 
 :pencil: Actividad 1 y 2 : Refactorizar código aplicando las técnicas manualmente
+
 :pencil: Actividad 3 : Refactorizar código con ayuda de NetBeans
 
 ## 2. Analizadores de código
@@ -548,6 +549,6 @@ NetBeans incluye un [Analizador de código](https://netbeans.apache.org/tutorial
 * Bloques vacíos de sentencias catch, try, finally, switch, etc.
 * Expresiones lógicas que se pueden simplificar.
 * Código que no se ejecuta nunca porque es inalcanzable.
-* Código dubplicado.  
+* Código duplicado.  
   
 :pencil: Actividad 4 : Analizar código con ayuda de NetBeans
