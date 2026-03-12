@@ -221,7 +221,7 @@ En el fichero pom.xml
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>5.5.5</version>     
+                <version>2.22.2</version>     
             </plugin>
         </plugins>
     </build>

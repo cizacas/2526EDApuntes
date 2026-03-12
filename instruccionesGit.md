@@ -1,5 +1,12 @@
 # Instrucciones Git
 
+Para que Git te identifique en los commits tienes que configurar nombre y email (no crea una cuenta, solo guarda esos datos en tu ordenador)
+
+Hay que configurar el usario y el correo electrónico
+
+`git config --global user.name "Tu Nombre Apellido"`
+`git config --global user.email "tu_correo@example.com"`
+
 `git init`: Esto crea un subdirectorio nuevo llamado .git, el cual contiene todos los archivos necesarios del repositorio – un esqueleto de un repositorio de Git. Todavía no hay nada en tu proyecto que esté bajo seguimiento.
 
 `git clone <url_repositorio>`: Clona un repositorio remoto a tu máquina local.
